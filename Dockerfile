@@ -14,11 +14,13 @@ RUN wget https://github.com/mozilla/sops/releases/download/v3.5.0/sops-v3.5.0.li
     && chown root:root /usr/local/bin/sops \
     && mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 
+RUN curl -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.16.1/bin/linux/amd64/kubectl \
+    && chmod 0755 /usr/local/bin/kubectl \
+    && chown root:root /usr/local/bin/kubectl
+
 RUN curl -L https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz |tar xvz && \
     mv linux-amd64/helm /usr/bin/helm && \
     chmod +x /usr/bin/helm && \
     rm -rf linux-amd64 && \
     apk del curl && \
     rm -f /var/cache/apk/*
-
-ENTRYPOINT [""]
