@@ -4,7 +4,7 @@ RUN apk add --no-cache python3 curl
 RUN pip3 install --upgrade pip
 RUN pip3 --no-cache-dir install --upgrade awscli
 
-RUN curl -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/darwin/amd64/aws-iam-authenticator \
+RUN curl -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.7/2019-03-27/bin/linux/amd64/aws-iam-authenticator \
     && chmod 0755 /usr/local/bin/aws-iam-authenticator \
     && chown root:root /usr/local/bin/aws-iam-authenticator
 
